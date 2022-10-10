@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/maincontainer"
+    android:layout_width="256px"
+    android:layout_height="128px"
+    android:background="#000"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+   >
+
+    <!--标题-->
+    <!--标题-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:lineSpacingExtra="12px"
+        android:textColor="#f00"
+        android:textSize="18px" />
+    <!-- <TextView
+         android:typeface="normal"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+         android:gravity="center"
+         android:lineSpacingExtra="12px"
+         android:text="海盐吾味农场气象观测站"
+         android:textColor="#f00"
+         android:textSize="18px" />
+ -->
+    <LinearLayout
+        android:id="@+id/content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!--右边实况-->
+        <TextView
+            android:id="@+id/rightText"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="5px"
+            android:text="温度:/℃\n雨量:/mm\n"
+            android:textColor="#f00"
+            android:textSize="17px" />
+        <!--左边实况-->
+        <TextView
+            android:id="@+id/leftText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="5px"
+            android:textColor="#f00"
+            android:textSize="17px" />
+
+    </LinearLayout>
+    <com.kd.appelements.add.MarqueeView
+        android:gravity="center"
+        android:id="@+id/weatherinfo"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:marqueeview_repet_type="repet_interval"
+        app:marqueeview_text_distance ="100"
+        app:marqueeview_text_size="10"
+        app:marqueeview_text_color="#f00"
+        app:marqueeview_text_speed="0.3"
+        />
+</LinearLayout>

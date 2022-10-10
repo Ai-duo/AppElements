@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="weaInfo"
+            type="java.lang.String" />
+        <variable
+            name="timer"
+            type="java.util.Timer" />
+        <variable
+            name="textSize"
+            type="java.lang.Integer" />
+        <variable
+            name="elements"
+            type="com.kd.appelements.add.Elements" />
+        <variable
+            name="typeFace"
+            type="android.graphics.Typeface" />
+        <variable
+            name="siteInfo"
+            type="com.kd.appelements.add.SiteInfo" />
+        <variable
+            name="pmFragment"
+            type="com.kd.appelements.fragments.PMFragment" />
+        <variable
+            name="eLementFragemnt"
+            type="com.kd.appelements.fragments.ElementFragment" />
+        <variable
+            name="mainActivity"
+            type="com.kd.appelements.activity.MainActivity" />
+    </data>
+    <!--洞头-->
+    <LinearLayout
+        android:id="@+id/maincontainer"
+        android:layout_width="256px"
+        android:layout_height="128px"
+        android:background="#000"
+        android:orientation="vertical"
+        android:screenOrientation="portrait"
+        tools:context=".activity.MainActivity">
+        <!--标题-->
+        <TextView
+
+            android:text="@{elements.getYear}"
+            app:setExtraTextSize="@{textSize}"
+            app:setExtraTypeface="@{typeFace}"
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:lineSpacingExtra="1px"
+            android:textColor="#f00"
+            />
+
+        <LinearLayout
+            android:id="@+id/content_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            app:context="@{mainActivity}"
+            app:timer="@{timer}"
+            app:elementFragment="@{eLementFragemnt}"
+            app:pmFragment="@{pmFragment}"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <com.kd.appelements.add.MarqueeView
+            android:id="@+id/weatherinfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            app:setMarqueeViewText="@{weaInfo}"
+            app:marqueeview_repet_type="repet_interval"
+            app:marqueeview_text_color="#f00"
+            app:marqueeview_text_distance="100"
+            app:marqueeview_text_size="8"
+            app:marqueeview_text_speed="0.3" />
+        <TextView
+            android:textColor="#f00"
+            android:textSize="17px"
+            android:text="扫描下方二维码了解更多"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"/>
+    </LinearLayout>
+</layout>

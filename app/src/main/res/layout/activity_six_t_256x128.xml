@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="leftText"
+            type="java.lang.String" />
+        <variable
+            name="rightText"
+            type="java.lang.String" />
+        <variable
+            name="weaInfo"
+            type="java.lang.String" />
+        <variable
+            name="timer"
+            type="java.util.Timer" />
+        <variable
+            name="textSize"
+            type="java.lang.Integer" />
+        <variable
+            name="elements"
+            type="com.kd.appelements.add.Elements" />
+        <variable
+            name="typeFace"
+            type="android.graphics.Typeface" />
+        <variable
+            name="siteInfo"
+            type="com.kd.appelements.add.SiteInfo" />
+        <variable
+            name="eLementFragemnt"
+            type="com.kd.appelements.fragments.ElementFragment" />
+
+    </data>
+    <!--洞头-->
+    <LinearLayout
+        android:id="@+id/maincontainer"
+        android:layout_width="256px"
+        android:layout_height="128px"
+        android:background="#000"
+        android:orientation="vertical"
+        android:screenOrientation="portrait"
+        tools:context=".activity.MainActivity">
+        <!--标题-->
+        <TextView
+
+            android:text="@{elements.getYear}"
+           android:textSize="19px"
+            app:setExtraTypeface="@{typeFace}"
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:lineSpacingExtra="1px"
+            android:textColor="#f00"
+            />
+
+        <LinearLayout
+            android:id="@+id/content_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:background="#000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:screenOrientation="portrait"
+                android:orientation="horizontal"
+                >
+                <!-- app:setOrientation="@{orientation}"-->
+                <TextView
+                    android:textColor="#f00"
+                    android:layout_marginLeft="2px"
+                    android:text="@{leftText}"
+                    android:textSize="19px"
+                    app:setExtraTypeface="@{typeFace}"
+                    android:id="@+id/rightText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="17px"
+                    />
+                <!-- android:lineSpacingExtra="10px"-->
+                <TextView
+                    android:text="@{rightText}"
+                    android:textSize="19px"
+                    app:setExtraTypeface="@{typeFace}"
+                    android:textColor="#f00"
+                    android:id="@+id/leftText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="17px"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.kd.appelements.add.MarqueeView
+            android:id="@+id/weatherinfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            app:setMarqueeViewText="@{weaInfo}"
+            app:marqueeview_repet_type="repet_interval"
+            app:marqueeview_text_color="#f00"
+            app:marqueeview_text_distance="100"
+            app:marqueeview_text_size="11"
+            app:marqueeview_text_speed="0.3" />
+    </LinearLayout>
+</layout>
